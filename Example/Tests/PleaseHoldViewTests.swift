@@ -1,16 +1,15 @@
-import XCTest
 import PleaseHold
+import XCTest
 
 class PleaseHoldViewTests: XCTestCase {
-
     private var pleaseHoldView: PleaseHoldView!
-    
+
     override func setUp() {
         super.setUp()
 
         pleaseHoldView = PleaseHoldView()
     }
-    
+
     func test_setTitleInInit_expectTitleLabelToSet() {
         let title = "title here"
         pleaseHoldView = PleaseHoldView(title: title, message: nil)
@@ -80,5 +79,4 @@ class PleaseHoldViewTests: XCTestCase {
         XCTAssertFalse(pleaseHoldView.rootView.subviews.contains(pleaseHoldView.messageLabel))
         XCTAssertTrue(pleaseHoldView.rootView.subviews.contains(pleaseHoldView.activityIndicator))
     }
-    
 }
