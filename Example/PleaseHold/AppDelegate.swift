@@ -14,6 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if CommandLine.arguments.contains("--uitesting") {
+            // reset state. However, we don't have anything needing to reset right now.
+        }
+
         window = UIWindow(frame: UIScreen.main.bounds)
 
         window?.rootViewController = ViewController()

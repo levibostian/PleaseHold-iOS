@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     let pleaseHoldView: PleaseHoldView = {
         let view = PleaseHoldView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.accessibilityIdentifier = AccessibilityIdentifiers.pleaseHoldView
         return view
     }()
 
