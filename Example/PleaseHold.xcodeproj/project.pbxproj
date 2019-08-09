@@ -12,8 +12,9 @@
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		607FACEC1AFB9204008FA782 /* PleaseHoldViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* PleaseHoldViewTests.swift */; };
 		B8DCDF835D25DDF6D0156BAE /* Pods_PleaseHold_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CFB7E1B4FBBB6633E4F216 /* Pods_PleaseHold_Example.framework */; };
+		F7AF7CCB22FC9F0C005CD42F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF7CCA22FC9F0C005CD42F /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,10 +42,11 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* PleaseHold_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PleaseHold_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* PleaseHoldViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseHoldViewTests.swift; sourceTree = "<group>"; };
 		F18FD91AF6F1EC1797CCB1BD /* Pods-PleaseHold_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PleaseHold_Example.release.xcconfig"; path = "Target Support Files/Pods-PleaseHold_Example/Pods-PleaseHold_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F3613B033AFB0E59F4903DA8 /* Pods-PleaseHold_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PleaseHold_Example.debug.xcconfig"; path = "Target Support Files/Pods-PleaseHold_Example/Pods-PleaseHold_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F705461C25407A0C78329E40 /* Pods_PleaseHold_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PleaseHold_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7AF7CCA22FC9F0C005CD42F /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = extensions/UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +114,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				F7AF7CC922FC9EF9005CD42F /* extension */,
+				607FACEB1AFB9204008FA782 /* PleaseHoldViewTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -154,6 +157,14 @@
 				F705461C25407A0C78329E40 /* Pods_PleaseHold_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7AF7CC922FC9EF9005CD42F /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				F7AF7CCA22FC9F0C005CD42F /* UIViewExtension.swift */,
+			);
+			name = extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,7 +348,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				F7AF7CCB22FC9F0C005CD42F /* UIViewExtension.swift in Sources */,
+				607FACEC1AFB9204008FA782 /* PleaseHoldViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

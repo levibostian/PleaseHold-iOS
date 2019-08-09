@@ -10,30 +10,40 @@ import UIKit
 
 public class PleaseHoldView: UIView {
 
-    let titleLabel: UILabel = {
-        let view = UILabel()
-        view.textColor = .darkText
-        view.textAlignment = .center
-        view.font = UIFont.boldSystemFont(ofSize: 24)
-        return view
-    }()
+    /// Access to `PleaseHoldViewConfig` to set defaults on all instances of `PleaseHoldView`.
+    public static let defaultConfig: PleaseHoldViewConfig = PleaseHoldViewConfig.shared
+    /// Override `defaultConfig` for this once instance.
+    public var config: PleaseHoldViewConfig? {
+        didSet {
+            build()
+        }
+    }
 
-    let messageLabel: UILabel = {
-        let view = UILabel()
-        view.textColor = .darkText
-        view.textAlignment = .center
-        view.font = view.font.withSize(18)
-        return view
-    }()
+    private var _config: PleaseHoldViewConfig {
+        return config ?? PleaseHoldView.defaultConfig
+    }
 
-    let activityIndicator: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView()
-        view.style = .gray
-        view.startAnimating()
-        return view
-    }()
+    public var titleLabel: UILabel {
+        return _config.titleLabel
+    }
 
-    let rootView: UIStackView = {
+    public var messageLabel: UILabel {
+        return _config.messageLabel
+    }
+
+    public var activityIndicator: UIActivityIndicatorView {
+        return _config.activityIndicator
+    }
+
+    private var addTitleLabel: Bool {
+        return title != nil
+    }
+
+    private var addMessageLabel: Bool {
+        return message != nil
+    }
+
+    public let rootView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
         view.distribution = .equalCentering
@@ -44,37 +54,50 @@ public class PleaseHoldView: UIView {
 
     public var title: String? {
         didSet {
-            configView()
+            build()
         }
     }
 
     public var message: String? {
         didSet {
-            configView()
+            build()
         }
     }
 
-    convenience init() {
+    public convenience init() {
         self.init(title: nil, message: nil)
     }
 
-    convenience init(title: String?, message: String?) {
+    public convenience init(title: String?, message: String?) {
         self.init(frame: CGRect.zero)
 
         self.title = title
         self.message = message
+
+        build()
+    }
+
+    private func build() {
+        self.removeAllSubviews()
+
+        if addTitleLabel {
+            rootView.addArrangedSubview(titleLabel)
+        }
+        if addMessageLabel {
+            rootView.addArrangedSubview(messageLabel)
+        }
+
+        rootView.addArrangedSubview(activityIndicator)
+        self.addSubview(rootView)
+
+        setupConstraints()
+        configView()
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        rootView.addArrangedSubview(titleLabel)
-        rootView.addArrangedSubview(messageLabel)
-        rootView.addArrangedSubview(activityIndicator)
-        self.addSubview(rootView)
-
-        configView()
-        setupConstraints()
+        build()
     }
 
     private func configView() {
@@ -83,22 +106,35 @@ public class PleaseHoldView: UIView {
     }
 
     private func setupConstraints() {
+        var isAutoLayoutConstraintActive = true
+        var translatesAutoresizingMaskIntoConstraintsValue = false
+
+        if !_config.useAutoLayoutConstraints {
+            isAutoLayoutConstraintActive = !isAutoLayoutConstraintActive
+            translatesAutoresizingMaskIntoConstraintsValue = !translatesAutoresizingMaskIntoConstraintsValue
+        }
+
         let superviewMargins = layoutMarginsGuide
+        let rootViewPadding = _config.viewPadding
 
-        let rootViewPadding: CGFloat = 20.0
+        rootView.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraintsValue
+        rootView.centerYAnchor.constraint(equalTo: superviewMargins.centerYAnchor).isActive = isAutoLayoutConstraintActive
+        rootView.leadingAnchor.constraint(equalTo: superviewMargins.leadingAnchor, constant: rootViewPadding).isActive = isAutoLayoutConstraintActive
+        rootView.trailingAnchor.constraint(equalTo: superviewMargins.trailingAnchor, constant: -rootViewPadding).isActive = isAutoLayoutConstraintActive
 
-        rootView.translatesAutoresizingMaskIntoConstraints = false
-        rootView.centerYAnchor.constraint(equalTo: superviewMargins.centerYAnchor).isActive = true
-        rootView.leadingAnchor.constraint(equalTo: superviewMargins.leadingAnchor, constant: rootViewPadding).isActive = true
-        rootView.trailingAnchor.constraint(equalTo: superviewMargins.trailingAnchor, constant: -rootViewPadding).isActive = true
+        if addTitleLabel {
+            titleLabel.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraintsValue
+            titleLabel.leadingAnchor.constraint(equalTo: rootView.layoutMarginsGuide.leadingAnchor).isActive = isAutoLayoutConstraintActive
+            titleLabel.trailingAnchor.constraint(equalTo: rootView.layoutMarginsGuide.trailingAnchor).isActive = isAutoLayoutConstraintActive
+        }
 
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.leadingAnchor.constraint(equalTo: rootView.layoutMarginsGuide.leadingAnchor).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: rootView.layoutMarginsGuide.trailingAnchor).isActive = true
+        if addMessageLabel {
+            messageLabel.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraintsValue
+            messageLabel.leadingAnchor.constraint(equalTo: rootView.layoutMarginsGuide.leadingAnchor).isActive = isAutoLayoutConstraintActive
+            messageLabel.trailingAnchor.constraint(equalTo: rootView.layoutMarginsGuide.trailingAnchor).isActive = isAutoLayoutConstraintActive
+        }
 
-        messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        messageLabel.leadingAnchor.constraint(equalTo: rootView.layoutMarginsGuide.leadingAnchor).isActive = true
-        messageLabel.trailingAnchor.constraint(equalTo: rootView.layoutMarginsGuide.trailingAnchor).isActive = true
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraintsValue
 
         self.updateConstraints()
     }
