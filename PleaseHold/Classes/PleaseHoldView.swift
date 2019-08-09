@@ -1,16 +1,8 @@
-//
-//  PleaseHoldView.swift
-//  PleaseHold
-//
-//  Created by Levi Bostian on 8/8/19.
-//
-
 import Foundation
 import UIKit
 
 /// Quick and easy progress UIView to place in your app.
 public class PleaseHoldView: UIView {
-
     /// Access to `PleaseHoldViewConfig` to set defaults on all instances of `PleaseHoldView`.
     public static let defaultConfig: PleaseHoldViewConfig = PleaseHoldViewConfig.shared
     /// Override `defaultConfig` for this once instance.
@@ -82,7 +74,7 @@ public class PleaseHoldView: UIView {
     }
 
     private func build() {
-        self.removeAllSubviews()
+        removeAllSubviews()
 
         if addTitleLabel {
             rootView.addArrangedSubview(titleLabel)
@@ -92,7 +84,7 @@ public class PleaseHoldView: UIView {
         }
 
         rootView.addArrangedSubview(activityIndicator)
-        self.addSubview(rootView)
+        addSubview(rootView)
 
         setupConstraints()
         configView()
@@ -133,7 +125,7 @@ public class PleaseHoldView: UIView {
 
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 
-        self.updateConstraints()
+        updateConstraints()
     }
 
     required init?(coder aDecoder: NSCoder) {

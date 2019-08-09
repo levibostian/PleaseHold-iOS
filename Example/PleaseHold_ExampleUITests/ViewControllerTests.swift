@@ -1,13 +1,5 @@
-//
-//  PleaseHold_ExampleUITests.swift
-//  PleaseHold_ExampleUITests
-//
-//  Created by Levi Bostian on 8/8/19.
-//  Copyright © 2019 CocoaPods. All rights reserved.
-//
-
-import XCTest
 @testable import Pods_PleaseHold_Example
+import XCTest
 
 class ViewControllerTests: XCTestCase {
     var app: XCUIApplication!
@@ -31,7 +23,6 @@ class ViewControllerTests: XCTestCase {
         viewController.titleLabel.assertShown()
         viewController.messageLabel.assertShown()
     }
-
 }
 
 class ViewControllerPageObject {

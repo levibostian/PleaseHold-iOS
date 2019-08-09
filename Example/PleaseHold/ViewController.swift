@@ -1,13 +1,5 @@
-//
-//  ViewController.swift
-//  PleaseHold
-//
-//  Created by Levi Bostian on 08/08/2019.
-//  Copyright (c) 2019 Levi Bostian. All rights reserved.
-//
-
-import UIKit
 import PleaseHold
+import UIKit
 
 class ViewController: UIViewController {
     private var didSetupConstraints = false
@@ -24,8 +16,8 @@ class ViewController: UIViewController {
 
         view.backgroundColor = .green // Setting background color to demonstrate the `PleaseHoldView` has a default backtround color of transparent so it adapts to the background color you set of parent.
 
-        self.view.addSubview(pleaseHoldView)
-        self.setupViews()
+        view.addSubview(pleaseHoldView)
+        setupViews()
 
         view.setNeedsUpdateConstraints()
     }
@@ -37,7 +29,7 @@ class ViewController: UIViewController {
 
     override func updateViewConstraints() {
         if !didSetupConstraints {
-            let superviewMargins = self.view.layoutMarginsGuide
+            let superviewMargins = view.layoutMarginsGuide
 
             pleaseHoldView.leadingAnchor.constraint(equalTo: superviewMargins.leadingAnchor).isActive = true
             pleaseHoldView.topAnchor.constraint(equalTo: superviewMargins.topAnchor).isActive = true
@@ -49,5 +41,4 @@ class ViewController: UIViewController {
 
         super.updateViewConstraints()
     }
-
 }

@@ -44,25 +44,111 @@
         <section>
           <section class="section">
             
-            <h1 id='pleasehold' class='heading'>PleaseHold</h1>
-
-<p><a href="https://travis-ci.org/Levi%20Bostian/PleaseHold"><img src="https://img.shields.io/travis/Levi%20Bostian/PleaseHold.svg?style=flat" alt="CI Status"></a>
+            <p><a href="https://travis-ci.com/levibostian/PleaseHold-iOS"><img src="https://travis-ci.com/levibostian/PleaseHold-iOS.svg?branch=master" alt="Build Status"></a>
 <a href="https://cocoapods.org/pods/PleaseHold"><img src="https://img.shields.io/cocoapods/v/PleaseHold.svg?style=flat" alt="Version"></a>
 <a href="https://cocoapods.org/pods/PleaseHold"><img src="https://img.shields.io/cocoapods/l/PleaseHold.svg?style=flat" alt="License"></a>
-<a href="https://cocoapods.org/pods/PleaseHold"><img src="https://img.shields.io/cocoapods/p/PleaseHold.svg?style=flat" alt="Platform"></a></p>
-<h2 id='example' class='heading'>Example</h2>
+<a href="https://cocoapods.org/pods/PleaseHold"><img src="https://img.shields.io/cocoapods/p/PleaseHold.svg?style=flat" alt="Platform"></a>
+<img src="https://img.shields.io/badge/Swift-5.0.x-orange.svg" alt="Swift 5.0.x"></p>
+<h1 id='pleasehold' class='heading'>PleaseHold</h1>
 
-<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
-<h2 id='requirements' class='heading'>Requirements</h2>
+<p>Quick and easy progress UIView to place in your app.</p>
+<h2 id='what-is-pleasehold' class='heading'>What is PleaseHold?</h2>
+
+<p>In the moments when you need to show a blocking progress UIView in your app, PleaseHold is a quick way to put one in your app. Configured with default settings that will work for most use cases, but customizable enough to cover more. Do us all a favor, and avoid blocking views 😉.</p>
+<h2 id='why-use-pleasehold' class='heading'>Why use PleaseHold?</h2>
+
+<ul>
+<li>Swift API</li>
+<li>Lightweight. Zero dependencies.</li>
+<li>UI testing friendly.</li>
+<li>Setup with default values that should work for 95% of your use cases. Customizable for those other cases.</li>
+<li>Full test suite. <a href="https://travis-ci.com/levibostian/PleaseHold-iOS"><img src="https://travis-ci.com/levibostian/PleaseHold-iOS.svg?branch=master" alt="Build Status"></a></li>
+<li><a href="https://levibostian.github.io/PleaseHold-iOS/">Full documentation</a>.</li>
+</ul>
 <h2 id='installation' class='heading'>Installation</h2>
 
-<p>PleaseHold is available through <a href="https://cocoapods.org">CocoaPods</a>. To install
-it, simply add the following line to your Podfile:</p>
-<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'PleaseHold'</span>
+<p>PleaseHold is available through <a href="https://cocoapods.org/pods/PleaseHold">CocoaPods</a>. To install it, simply add the following line to your Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'PleaseHold'</span><span class="p">,</span> <span class="s1">'~&gt; version-here'</span>
+</code></pre>
+
+<p>Replace <code>version-here</code> with: <a href="https://cocoapods.org/pods/PleaseHold"><img src="https://img.shields.io/cocoapods/v/PleaseHold.svg?style=flat" alt="Version"></a> as this is the latest version at this time. </p>
+<h1 id='getting-started' class='heading'>Getting started</h1>
+
+<ul>
+<li>Create an instance of <code><a href="Classes/PleaseHoldView.html">PleaseHoldView</a></code> in your <code>UIViewController</code>. You can do this with Storyboard by adding a <code>UIView</code> to Storyboard and setting the <code>UIView</code> class to <code><a href="Classes/PleaseHoldView.html">PleaseHoldView</a></code>, or create an instance in your Swift code:</li>
+</ul>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">pleaseHoldView</span><span class="p">:</span> <span class="kt">PleaseHoldView</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="kt">PleaseHoldView</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Downloading your profile"</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="s">"Please wait..."</span><span class="p">)</span>
+    <span class="n">view</span><span class="o">.</span><span class="n">translatesAutoresizingMaskIntoConstraints</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">view</span><span class="o">.</span><span class="n">accessibilityIdentifier</span> <span class="o">=</span> <span class="kt">AccessibilityIdentifiers</span><span class="o">.</span><span class="n">pleaseHoldView</span>
+    <span class="k">return</span> <span class="n">view</span>
+<span class="p">}()</span>
+</code></pre>
+
+<ul>
+<li>Add the <code><a href="Classes/PleaseHoldView.html">PleaseHoldView</a></code> to your <code>UIViewController</code>. Pretty simple.</li>
+</ul>
+
+<p>If you want to change the text of the title or message <code>UILabel</code>s, you can change them at runtime:</p>
+<pre class="highlight swift"><code><span class="n">pleaseHoldView</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">"New title"</span>
+<span class="n">pleaseHoldView</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s">"New message"</span>
+</code></pre>
+
+<p>Or, if you want to hide one of the labels, you can just set <code>nil</code>:</p>
+<pre class="highlight swift"><code><span class="n">pleaseHoldView</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="kc">nil</span> 
+<span class="n">pleaseHoldView</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="kc">nil</span> 
+</code></pre>
+<h1 id='configure-pleasehold' class='heading'>Configure PleaseHold</h1>
+
+<p>PleaseHold works great without any configuration necessary. However, if you wish to customize it yourself, you can. </p>
+
+<p>If you want to change the default values of all instances of <code>PleaseHold</code> in your app, change the values in the default singleton:</p>
+<pre class="highlight swift"><code><span class="kt">PleaseHold</span><span class="o">.</span><span class="n">defaultConfig</span><span class="o">.</span><span class="n">viewPadding</span> <span class="o">=</span> <span class="mf">10.0</span>
+</code></pre>
+
+<p>Or, you can configure 1 single instance of <code>PleaseHold</code>:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">pleaseHoldView</span> <span class="o">=</span> <span class="kt">PleaseHoldView</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="k">var</span> <span class="nv">instanceConfig</span><span class="p">:</span> <span class="kt">PleaseHoldViewConfig</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">PleaseHoldViewConfig</span><span class="o">.</span><span class="n">light</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">titleLabel</span> <span class="o">=</span> <span class="kt">UILabel</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">config</span>
+<span class="p">}</span>
+<span class="n">pleaseHoldView</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">instanceConfig</span>
+</code></pre>
+
+<p>There are many things you can configure for <code>PleaseHold</code>. For a list of all the configuration options, view the <a href="https://levibostian.github.io/PleaseHold-iOS/Classes/PleaseHoldViewConfig.html">docs on PleaseHoldViewConfig</a></p>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>PleaseHold comes with an example app you can use to play with the library. To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first. Then, open the workspace in XCode. </p>
+<h2 id='development' class='heading'>Development</h2>
+
+<p>PleaseHold is a pretty simple CocoaPods library project. Follow the directions below for the optimal development experience. </p>
+
+<ul>
+<li>Install cocoapods/gems and setup workspace:</li>
+</ul>
+<pre class="highlight shell"><code><span class="nv">$&gt;</span> bundle <span class="nb">install</span>
+<span class="nv">$&gt;</span> <span class="nb">cd </span>PleaseHold/Example
+<span class="nv">$&gt;</span> pod <span class="nb">install</span>
+</code></pre>
+
+<ul>
+<li>Setup git hooks <a href="https://github.com/brigade/overcommit/">via overcommit</a> to run misc tasks for you when using git.</li>
+</ul>
+<pre class="highlight shell"><code><span class="nv">$&gt;</span> overcommit <span class="nt">--install</span>
 </code></pre>
 <h2 id='author' class='heading'>Author</h2>
 
-<p>Levi Bostian, <a href="mailto:levi.bostian@gmail.com">levi.bostian@gmail.com</a></p>
+<ul>
+<li>Levi Bostian - <a href="https://github.com/levibostian">GitHub</a>, <a href="https://twitter.com/levibostian">Twitter</a>, <a href="http://levibostian.com">Website/blog</a></li>
+</ul>
+
+<p><img src="https://gravatar.com/avatar/22355580305146b21508c74ff6b44bc5?s=250" alt="Levi Bostian image"></p>
+<h2 id='contribute' class='heading'>Contribute</h2>
+
+<p>PleaseHold is open for pull requests. Check out the <a href="https://github.com/levibostian/PleaseHold-ios/issues">list of issues</a> for tasks I am planning on working on. Check them out if you wish to contribute in that way.</p>
+
+<p><strong>Want to add features to PleaseHold?</strong> Before you decide to take a bunch of time and add functionality to the library, please, <a href="https://github.com/levibostian/PleaseHold-iOS/issues/new">create an issue</a> stating what you wish to add. This might save you some time in case your purpose does not fit well in the use cases of PleaseHold.</p>
 <h2 id='license' class='heading'>License</h2>
 
 <p>PleaseHold is available under the MIT license. See the LICENSE file for more info.</p>
@@ -70,7 +156,7 @@ it, simply add the following line to your Podfile:</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/levibostian/" target="_blank" rel="external">Levi Bostian</a>. All rights reserved. (Last updated: 2019-08-08)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/levibostian/" target="_blank" rel="external">Levi Bostian</a>. All rights reserved. (Last updated: 2019-08-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
