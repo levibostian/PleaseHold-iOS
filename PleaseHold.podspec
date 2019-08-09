@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'PleaseHold'
   s.version          = '0.0.1'
-  s.summary          = 'A short description of PleaseHold.'
+  s.summary          = 'Quick and easy progress UIView to place in your app.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+In the moments when you need to show a blocking progress UIView in your app, PleaseHold is a quick way to put one in your app. Configured with default settings that will work for most use cases, but customizable enough to cover more. Do us all a favor, and avoid blocking views 😉. 
                        DESC
 
   s.homepage         = 'https://github.com/levibostian/PleaseHold-iOS'

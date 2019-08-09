@@ -4,6 +4,8 @@ platform :ios, '10.0'
 
 target 'PleaseHold_Example' do
   pod 'PleaseHold', :path => '../'
+  pod 'SwiftLint'
+  pod 'SwiftFormat/CLI'
 
   target 'PleaseHold_Tests' do
     inherit! :search_paths

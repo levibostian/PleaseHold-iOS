@@ -7,14 +7,17 @@
 
 import Foundation
 
+/// Configuration for `PleaseHoldView`
 public class PleaseHoldViewConfig {
 
     /// Singleton access to `PleaseHoldViewConfig`.
     public static var shared: PleaseHoldViewConfig = PleaseHoldViewConfig.dark
 
+    /// Initialize new instance of `PleaseHoldViewConfig`
     public init() {
     }
 
+    /// Edit the `UILabel` used as the title for `PleaseHoldView`
     public var titleLabel: UILabel = {
         let view = UILabel()
         view.textColor = .darkText
@@ -23,6 +26,7 @@ public class PleaseHoldViewConfig {
         return view
     }()
 
+    /// Edit the `UILabel` used as the message for `PleaseHoldView`
     public var messageLabel: UILabel = {
         let view = UILabel()
         view.textColor = .darkText
@@ -31,6 +35,7 @@ public class PleaseHoldViewConfig {
         return view
     }()
 
+    /// Edit the `UIActivityIndicatorView` used as the activity indicator for `PleaseHoldView`
     public var activityIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.style = .gray
@@ -38,14 +43,14 @@ public class PleaseHoldViewConfig {
         return view
     }()
 
-    public var useAutoLayoutConstraints: Bool = true
-
+    /// Set the padding for the leading and trailing side of the contents of `PleaseHoldView`.
     public var viewPadding: CGFloat = 20.0
 
 }
 
 public extension PleaseHoldViewConfig {
 
+    /// Convenient `PleaseHoldViewConfig` instance with `UIView`s that are dark in color. Great for light colored backgrounds.
     static let dark: PleaseHoldViewConfig = {
         let config = PleaseHoldViewConfig()
         config.titleLabel.textColor = .darkText
@@ -54,6 +59,7 @@ public extension PleaseHoldViewConfig {
         return config
     }()
 
+    /// Convenient `PleaseHoldViewConfig` instance with `UIView`s that are light in color. Great for dark colored backgrounds.
     static let light: PleaseHoldViewConfig = {
         let config = PleaseHoldViewConfig()
         config.titleLabel.textColor = .white

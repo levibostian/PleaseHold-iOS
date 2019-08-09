@@ -1,0 +1,138 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldView.swift",
+      "line": 11,
+      "symbol": "PleaseHoldView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldView.swift",
+      "line": 26,
+      "symbol": "PleaseHoldView.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldView.swift",
+      "line": 30,
+      "symbol": "PleaseHoldView.messageLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldView.swift",
+      "line": 34,
+      "symbol": "PleaseHoldView.activityIndicator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldView.swift",
+      "line": 46,
+      "symbol": "PleaseHoldView.rootView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldView.swift",
+      "line": 55,
+      "symbol": "PleaseHoldView.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldView.swift",
+      "line": 61,
+      "symbol": "PleaseHoldView.message",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldView.swift",
+      "line": 67,
+      "symbol": "PleaseHoldView.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldView.swift",
+      "line": 71,
+      "symbol": "PleaseHoldView.init(title:message:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldViewConfig.swift",
+      "line": 10,
+      "symbol": "PleaseHoldViewConfig",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldViewConfig.swift",
+      "line": 15,
+      "symbol": "PleaseHoldViewConfig.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldViewConfig.swift",
+      "line": 18,
+      "symbol": "PleaseHoldViewConfig.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldViewConfig.swift",
+      "line": 26,
+      "symbol": "PleaseHoldViewConfig.messageLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldViewConfig.swift",
+      "line": 34,
+      "symbol": "PleaseHoldViewConfig.activityIndicator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldViewConfig.swift",
+      "line": 41,
+      "symbol": "PleaseHoldViewConfig.useAutoLayoutConstraints",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldViewConfig.swift",
+      "line": 43,
+      "symbol": "PleaseHoldViewConfig.viewPadding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldViewConfig.swift",
+      "line": 47,
+      "symbol": "PleaseHoldViewConfig",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldViewConfig.swift",
+      "line": 49,
+      "symbol": "PleaseHoldViewConfig.dark",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/PleaseHold-iOS/PleaseHold/Classes/PleaseHoldViewConfig.swift",
+      "line": 57,
+      "symbol": "PleaseHoldViewConfig.light",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/levibostian/code/PleaseHold-iOS"
+}
