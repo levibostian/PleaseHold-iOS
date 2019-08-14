@@ -53,7 +53,7 @@ public class PleaseHoldView: UIView {
     }
 
     private func build() {
-        self.rootView.removeAllArrangedSubviews()
+        rootView.removeAllArrangedSubviews()
         removeAllSubviews()
         titleLabel = nil
         messageLabel = nil

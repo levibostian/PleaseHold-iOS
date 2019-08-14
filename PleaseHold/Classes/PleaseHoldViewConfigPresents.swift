@@ -1,10 +1,3 @@
-//
-//  PleaseHoldViewConfigPresents.swift
-//  PleaseHold
-//
-//  Created by Levi Bostian on 8/14/19.
-//
-
 import Foundation
 
 /// Create a set of default views to conveniently set config for `EmptyView`.
