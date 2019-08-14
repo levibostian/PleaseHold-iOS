@@ -24,6 +24,12 @@ class ViewController: UIViewController {
 
     private func setupViews() {
         pleaseHoldView.title = "Please wait..."
+        pleaseHoldView.config.newMessageLabel = {
+            let label = PleaseHoldViewConfig.defaultMessageLabel
+            label.textColor = .red
+            return label
+        }
+
         pleaseHoldView.message = "Wait for this thing to happen."
     }
 
