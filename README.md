@@ -10,7 +10,9 @@ Quick and easy progress UIView to place in your app.
 
 ## What is PleaseHold?
 
-In the moments when you need to show a blocking progress UIView in your app, PleaseHold is a quick way to put one in your app. Configured with default settings that will work for most use cases, but customizable enough to cover more. Do us all a favor, and avoid blocking views 😉.
+In the moments when you need to show a blocking progress UIView in your app, PleaseHold is a quick way to put one in your app. Configured with default settings that will work for most use cases, but customizable enough to cover more. Do us all a favor, and avoid blocking views as much as you can 😉.
+
+![screenshot](misc/example_screenshot.png)
 
 ## Why use PleaseHold?
 
@@ -20,6 +22,8 @@ In the moments when you need to show a blocking progress UIView in your app, Ple
 * Setup with default values that should work for 95% of your use cases. Customizable for those other cases. 
 * Full test suite. [![Build Status](https://travis-ci.com/levibostian/PleaseHold-iOS.svg?branch=master)](https://travis-ci.com/levibostian/PleaseHold-iOS)
 * [Full documentation](https://levibostian.github.io/PleaseHold-iOS/). 
+
+I recommend you check out 2 other libraries that work nicely with PleaseHold: [Empty](https://github.com/levibostian/Empty-iOS) and [Swapper](https://github.com/levibostian/Swapper-iOS).
 
 ## Installation
 
@@ -37,9 +41,10 @@ Replace `version-here` with: [![Version](https://img.shields.io/cocoapods/v/Plea
 
 ```swift
 let pleaseHoldView: PleaseHoldView = {
-    let view = PleaseHoldView(title: "Downloading your profile", message: "Please wait...")
-    view.translatesAutoresizingMaskIntoConstraints = false
-    view.accessibilityIdentifier = AccessibilityIdentifiers.pleaseHoldView
+    let view = PleaseHoldView()
+    view.title = nil // title is optional 
+    view.message = nil // message is optional 
+    view.translatesAutoresizingMaskIntoConstraints = false    
     return view
 }()
 ```
@@ -73,14 +78,47 @@ PleaseHold.defaultConfig.viewPadding = 10.0
 Or, you can configure 1 single instance of `PleaseHold`:
 
 ```swift
-let pleaseHoldView = PleaseHoldView(title: nil, message: nil)
-var instanceConfig: PleaseHoldViewConfig {
-    let config = PleaseHoldViewConfig.light
-    config.titleLabel = UILabel()
-    return config
+let pleaseHoldView = PleaseHoldView()
+pleaseHoldView.config.newTitleLabel = {
+    let label = PleaseHoldViewConfig.defaultTitleLabel
+    label.textColor = .blue
+    return label
 }
-pleaseHoldView.config = instanceConfig
+pleaseHoldView.title = "Set title here, it will have blue text color!"
 ```
+
+To make re-useable configurations for `PleaseHoldView`, it's recommended to create an `PleaseHoldViewConfigPresent`:
+
+```swift
+/// Convenient set of `UIView`s that are dark in color. Great for light colored backgrounds.
+public struct DarkPleaseHoldViewConfigPreset: PleaseHoldViewConfigPreset {
+    /// Dark colored title label.
+    public var titleLabel: UILabel {
+        let label = PleaseHoldViewConfig.defaultTitleLabel
+        label.textColor = .darkText
+        return label
+    }
+
+    /// Dark colored message label.
+    public var messageLabel: UILabel {
+        let label = PleaseHoldViewConfig.defaultMessageLabel
+        label.textColor = .darkText
+        return label
+    }
+
+    /// Dark colored activity indicator.
+    public var activityIndicator: UIActivityIndicatorView {
+        let indicator = PleaseHoldViewConfig.defaultActivityIndicator
+        indicator.style = .gray
+        return indicator
+    }
+}
+
+let pleaseHoldView = PleaseHoldView()
+pleaseHoldView.config = DarkPleaseHoldViewConfigPreset().config
+```
+
+For convenience, `PleaseHold` comes with a light and dark colored present: `DarkPleaseHoldViewConfigPreset` and `LightPleaseHoldViewConfigPreset` that you can use or extend. 
 
 There are many things you can configure for `PleaseHold`. For a list of all the configuration options, view the [docs on PleaseHoldViewConfig](https://levibostian.github.io/PleaseHold-iOS/Classes/PleaseHoldViewConfig.html)
 

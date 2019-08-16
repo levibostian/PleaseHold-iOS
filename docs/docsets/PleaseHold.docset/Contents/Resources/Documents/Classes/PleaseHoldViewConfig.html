@@ -39,6 +39,25 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/PleaseHoldViewConfigPreset.html">PleaseHoldViewConfigPreset</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/DarkPleaseHoldViewConfigPreset.html">DarkPleaseHoldViewConfigPreset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LightPleaseHoldViewConfigPreset.html">LightPleaseHoldViewConfigPreset</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -114,9 +133,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10PleaseHold0aB10ViewConfigC10titleLabelSo7UILabelCvp"></a>
-                    <a name="//apple_ref/swift/Property/titleLabel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC10titleLabelSo7UILabelCvp">titleLabel</a>
+                    <a name="/s:10PleaseHold0aB10ViewConfigC13newTitleLabelSo7UILabelCycvp"></a>
+                    <a name="//apple_ref/swift/Property/newTitleLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC13newTitleLabelSo7UILabelCycvp">newTitleLabel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -124,14 +143,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Edit the <code>UILabel</code> used as the title for <code><a href="../Classes/PleaseHoldView.html">PleaseHoldView</a></code></p>
+                        <p>Customize the title <code>UILabel</code> of <code><a href="../Classes/PleaseHoldView.html">PleaseHoldView</a></code>. Called when adding a title to <code><a href="../Classes/PleaseHoldView.html">PleaseHoldView</a></code> instances.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">titleLabel</span><span class="p">:</span> <span class="kt">UILabel</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">newTitleLabel</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UILabel</span></code></pre>
 
                         </div>
                       </div>
@@ -141,9 +160,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10PleaseHold0aB10ViewConfigC12messageLabelSo7UILabelCvp"></a>
-                    <a name="//apple_ref/swift/Property/messageLabel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC12messageLabelSo7UILabelCvp">messageLabel</a>
+                    <a name="/s:10PleaseHold0aB10ViewConfigC17defaultTitleLabelSo7UILabelCvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/defaultTitleLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC17defaultTitleLabelSo7UILabelCvpZ">defaultTitleLabel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -151,14 +170,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Edit the <code>UILabel</code> used as the message for <code><a href="../Classes/PleaseHoldView.html">PleaseHoldView</a></code></p>
+                        <p>The default title label for <code><a href="../Classes/PleaseHoldView.html">PleaseHoldView</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">messageLabel</span><span class="p">:</span> <span class="kt">UILabel</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">defaultTitleLabel</span><span class="p">:</span> <span class="kt">UILabel</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -168,9 +187,90 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10PleaseHold0aB10ViewConfigC17activityIndicatorSo010UIActivityfC0Cvp"></a>
-                    <a name="//apple_ref/swift/Property/activityIndicator" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC17activityIndicatorSo010UIActivityfC0Cvp">activityIndicator</a>
+                    <a name="/s:10PleaseHold0aB10ViewConfigC15newMessageLabelSo7UILabelCycvp"></a>
+                    <a name="//apple_ref/swift/Property/newMessageLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC15newMessageLabelSo7UILabelCycvp">newMessageLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Customize the message <code>UILabel</code> of <code>PleaseHoldViewConfig</code>. Called when adding a message to <code>PleaseHoldViewConfig</code> instances.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">newMessageLabel</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UILabel</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10PleaseHold0aB10ViewConfigC19defaultMessageLabelSo7UILabelCvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/defaultMessageLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC19defaultMessageLabelSo7UILabelCvpZ">defaultMessageLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The default message label for <code><a href="../Classes/PleaseHoldView.html">PleaseHoldView</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">defaultMessageLabel</span><span class="p">:</span> <span class="kt">UILabel</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10PleaseHold0aB10ViewConfigC20newActivityIndicatorSo010UIActivitygC0Cycvp"></a>
+                    <a name="//apple_ref/swift/Property/newActivityIndicator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC20newActivityIndicatorSo010UIActivitygC0Cycvp">newActivityIndicator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Customize the message <code>UILabel</code> of <code>PleaseHoldViewConfig</code>. Called when adding a message to <code>PleaseHoldViewConfig</code> instances.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">newActivityIndicator</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIActivityIndicatorView</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10PleaseHold0aB10ViewConfigC24defaultActivityIndicatorSo010UIActivitygC0CvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/defaultActivityIndicator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC24defaultActivityIndicatorSo010UIActivitygC0CvpZ">defaultActivityIndicator</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -185,7 +285,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">activityIndicator</span><span class="p">:</span> <span class="kt">UIActivityIndicatorView</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">defaultActivityIndicator</span><span class="p">:</span> <span class="kt">UIActivityIndicatorView</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -226,9 +326,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10PleaseHold0aB10ViewConfigC4darkACvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/dark" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC4darkACvpZ">dark</a>
+                    <a name="/s:10PleaseHold0aB10ViewConfigC11darkPresentAA0abcD6Preset_pvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/darkPresent" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC11darkPresentAA0abcD6Preset_pvpZ">darkPresent</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -236,14 +336,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Convenient <code>PleaseHoldViewConfig</code> instance with <code>UIView</code>s that are dark in color. Great for light colored backgrounds.</p>
+                        <p>Convenient access to <code><a href="../Structs/DarkPleaseHoldViewConfigPreset.html">DarkPleaseHoldViewConfigPreset</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">dark</span><span class="p">:</span> <span class="kt">PleaseHoldViewConfig</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">darkPresent</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PleaseHoldViewConfigPreset.html">PleaseHoldViewConfigPreset</a></span></code></pre>
 
                         </div>
                       </div>
@@ -253,9 +353,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10PleaseHold0aB10ViewConfigC5lightACvpZ"></a>
+                    <a name="/s:10PleaseHold0aB10ViewConfigC5lightAA0abcD6Preset_pvpZ"></a>
                     <a name="//apple_ref/swift/Variable/light" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC5lightACvpZ">light</a>
+                    <a class="token" href="#/s:10PleaseHold0aB10ViewConfigC5lightAA0abcD6Preset_pvpZ">light</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -263,14 +363,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Convenient <code>PleaseHoldViewConfig</code> instance with <code>UIView</code>s that are light in color. Great for dark colored backgrounds.</p>
+                        <p>Convenient access to <code><a href="../Structs/LightPleaseHoldViewConfigPreset.html">LightPleaseHoldViewConfigPreset</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">light</span><span class="p">:</span> <span class="kt">PleaseHoldViewConfig</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">light</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PleaseHoldViewConfigPreset.html">PleaseHoldViewConfigPreset</a></span></code></pre>
 
                         </div>
                       </div>
@@ -282,7 +382,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/levibostian/" target="_blank" rel="external">Levi Bostian</a>. All rights reserved. (Last updated: 2019-08-09)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/levibostian/" target="_blank" rel="external">Levi Bostian</a>. All rights reserved. (Last updated: 2019-08-16)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -10,73 +10,92 @@ class PleaseHoldViewTests: XCTestCase {
         pleaseHoldView = PleaseHoldView()
     }
 
-    func test_setTitleInInit_expectTitleLabelToSet() {
-        let title = "title here"
-        pleaseHoldView = PleaseHoldView(title: title, message: nil)
-
-        XCTAssertEqual(pleaseHoldView.titleLabel.text, title)
+    func test_init_noSubviews() {
+        XCTAssertNil(pleaseHoldView.titleLabel)
+        XCTAssertNil(pleaseHoldView.messageLabel)
+        XCTAssertNotNil(pleaseHoldView.activityIndicator)
     }
 
-    func test_setMessageInInit_expectTitleLabelToSet() {
-        let message = "message here"
-        pleaseHoldView = PleaseHoldView(title: nil, message: message)
+    func test_setTitle_expectLabelAdded() {
+        let title = "title"
+        pleaseHoldView.title = title
 
-        XCTAssertEqual(pleaseHoldView.messageLabel.text, message)
+        XCTAssertNotNil(pleaseHoldView.titleLabel)
+        XCTAssertNil(pleaseHoldView.messageLabel)
+        XCTAssertNotNil(pleaseHoldView.activityIndicator)
+        XCTAssertTrue(pleaseHoldView.rootView.arrangedSubviews.contains(pleaseHoldView.titleLabel!))
+
+        XCTAssertEqual(pleaseHoldView.titleLabel?.text, title)
     }
 
-    func test_setTitleAfterInit_expectTitleLabelToSet() {
-        let oldTitle = "old title"
-        let newTitle = "new title"
-        pleaseHoldView = PleaseHoldView(title: oldTitle, message: nil)
-        pleaseHoldView.title = newTitle
+    func test_setMessage_expectLabelAdded() {
+        let message = "message"
+        pleaseHoldView.message = message
 
-        XCTAssertEqual(pleaseHoldView.titleLabel.text, newTitle)
+        XCTAssertNil(pleaseHoldView.titleLabel)
+        XCTAssertNotNil(pleaseHoldView.messageLabel)
+        XCTAssertNotNil(pleaseHoldView.activityIndicator)
+        XCTAssertTrue(pleaseHoldView.rootView.arrangedSubviews.contains(pleaseHoldView.messageLabel!))
+
+        XCTAssertEqual(pleaseHoldView.messageLabel?.text, message)
     }
 
-    func test_setMessageAfterInit_expectTitleLabelToSet() {
-        let oldMessage = "old message"
-        let newMessage = "new message"
-        pleaseHoldView = PleaseHoldView(title: nil, message: oldMessage)
-        pleaseHoldView.message = newMessage
+    func test_setTitleThenNil_expectRemoveLabel() {
+        let title = "title"
+        pleaseHoldView.title = title
 
-        XCTAssertEqual(pleaseHoldView.messageLabel.text, newMessage)
+        let oldTitleLabel: UILabel = pleaseHoldView.titleLabel!
+
+        pleaseHoldView.title = nil
+
+        XCTAssertNil(pleaseHoldView.titleLabel)
+        XCTAssertNil(pleaseHoldView.messageLabel)
+        XCTAssertFalse(pleaseHoldView.rootView.arrangedSubviews.contains(oldTitleLabel))
     }
 
-    func test_titleLabel_setCustomLabelInConfig() {
-        let config = PleaseHoldViewConfig.dark
-        let oldTextColor = config.titleLabel.textColor
-        let newTextColor: UIColor = .green
-        config.titleLabel.textColor = newTextColor
+    func test_setMessageThenNil_expectRemoveLabel() {
+        let message = "message"
+        pleaseHoldView.message = message
+
+        let oldMessageLabel: UILabel = pleaseHoldView.messageLabel!
+
+        pleaseHoldView.message = nil
+
+        XCTAssertNil(pleaseHoldView.titleLabel)
+        XCTAssertNil(pleaseHoldView.messageLabel)
+        XCTAssertFalse(pleaseHoldView.rootView.arrangedSubviews.contains(oldMessageLabel))
+    }
+
+    func test_useConfig() {
+        let expectCustomizeTitleLabel = XCTestExpectation(description: "Expect to customize title label")
+        let expectCustomizeMessageLabel = XCTestExpectation(description: "Expect to customize message label")
+
+        let changedTextColor: UIColor = .red
+
+        let config: PleaseHoldViewConfig = {
+            let config = PleaseHoldViewConfig()
+            config.newTitleLabel = {
+                let label = PleaseHoldViewConfig.defaultTitleLabel
+                label.textColor = changedTextColor
+                expectCustomizeTitleLabel.fulfill()
+                return label
+            }
+            config.newMessageLabel = {
+                let label = PleaseHoldViewConfig.defaultMessageLabel
+                label.textColor = changedTextColor
+                expectCustomizeMessageLabel.fulfill()
+                return label
+            }
+            return config
+        }()
         pleaseHoldView.config = config
 
-        XCTAssertNotEqual(pleaseHoldView.titleLabel.textColor, oldTextColor)
-        XCTAssertEqual(pleaseHoldView.titleLabel.textColor, newTextColor)
-    }
+        pleaseHoldView.title = "title"
+        pleaseHoldView.message = "message"
 
-    func test_messageLabel_setCustomLabelInConfig() {
-        let config = PleaseHoldViewConfig.dark
-        let oldTextColor = config.messageLabel.textColor
-        let newTextColor: UIColor = .green
-        config.messageLabel.textColor = newTextColor
-        pleaseHoldView.config = config
+        wait(for: [expectCustomizeTitleLabel, expectCustomizeMessageLabel], timeout: TestUtil.timeoutDefault)
 
-        XCTAssertNotEqual(pleaseHoldView.messageLabel.textColor, oldTextColor)
-        XCTAssertEqual(pleaseHoldView.messageLabel.textColor, newTextColor)
-    }
-
-    func test_titleNil_expectDontAddTitleLabel() {
-        pleaseHoldView = PleaseHoldView(title: nil, message: "")
-
-        XCTAssertFalse(pleaseHoldView.rootView.subviews.contains(pleaseHoldView.titleLabel))
-        XCTAssertTrue(pleaseHoldView.rootView.subviews.contains(pleaseHoldView.messageLabel))
-        XCTAssertTrue(pleaseHoldView.rootView.subviews.contains(pleaseHoldView.activityIndicator))
-    }
-
-    func test_messageNil_expectDontAddTitleLabel() {
-        pleaseHoldView = PleaseHoldView(title: "", message: nil)
-
-        XCTAssertTrue(pleaseHoldView.rootView.subviews.contains(pleaseHoldView.titleLabel))
-        XCTAssertFalse(pleaseHoldView.rootView.subviews.contains(pleaseHoldView.messageLabel))
-        XCTAssertTrue(pleaseHoldView.rootView.subviews.contains(pleaseHoldView.activityIndicator))
+        XCTAssertEqual(pleaseHoldView.titleLabel?.textColor, changedTextColor)
+        XCTAssertEqual(pleaseHoldView.messageLabel?.textColor, changedTextColor)
     }
 }
