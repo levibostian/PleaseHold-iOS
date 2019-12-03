@@ -8,6 +8,8 @@
 
 Quick and easy progress UIView to place in your app.
 
+*Android developer? Check out [the Android version of PleaseHold!](https://github.com/levibostian/pleasehold-android)*
+
 ## What is PleaseHold?
 
 In the moments when you need to show a blocking progress UIView in your app, PleaseHold is a quick way to put one in your app. Configured with default settings that will work for most use cases, but customizable enough to cover more. Do us all a favor, and avoid blocking views as much as you can 😉.
